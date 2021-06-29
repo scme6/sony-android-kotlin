@@ -10,5 +10,12 @@
     <color name="gray_1">#FFEEEEEE</color>
 
     <color name="day_night_black_font_gray3">#1c1c1c</color>
+    <color name="day_night_bg_gray1">#FFEEEEEE</color>
+    <color name="day_night_white_danhei">#ffffff</color>
+    <color name="day_night_gray1font">#5c5c5c</color>
+    <color name="day_night_divider_gray">#FFEEEEEE</color>
+    <color name="day_night_white_font_gray1">#5c5c5c</color>
+    <color name="day_night_cate_left_itembg">#FFEEEEEE</color>
+
 
 </resources>

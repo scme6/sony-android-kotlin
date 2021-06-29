@@ -1,5 +1,10 @@
 package com.sony.store.myapplication.base
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 
 /**
@@ -7,5 +12,26 @@ import androidx.fragment.app.Fragment
  * @author: qiang
  * @date: 2021-06-27
  */
-open class BaseFragment  : Fragment() {
+abstract class BaseFragment : Fragment() {
+
+     val TAG=this.javaClass.simpleName
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return if (setContentView() is View)
+            setContentView() as View
+        else
+            inflater.inflate(setContentView() as Int, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView(view)
+    }
+
+    abstract fun setContentView(): Any
+    abstract fun initView(view: View)
+
 }

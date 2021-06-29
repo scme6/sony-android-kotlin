@@ -11,25 +11,14 @@ import com.sony.store.myapplication.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
- * @Description
+ * @Description 一级 首页
  * @author: qiang
  * @date: 2021-06-27
  */
 class HomeFragment : BaseFragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+    override fun setContentView() = R.layout.fragment_home
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initView()
-    }
-
-    private fun initView() {
+    override fun initView(view: View) {
         val listAdapter = MainListAdapter(this)
         listAdapter.onTabsLoaded()
         main_recycler_view.layoutManager = LinearLayoutManager(requireContext())

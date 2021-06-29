@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlSearch"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <ImageView
+        android:id="@+id/ivSearchBg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffffff"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etSearch"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/home_editbg"
+        android:gravity="center_vertical"
+        android:hint="请输入关键词"
+        android:paddingLeft="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSearchBg"
+        app:layout_constraintEnd_toEndOf="@+id/tvSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSearchBg" />
+
+    <ImageView
+
+        android:id="@+id/searchIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/home_search"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+        app:layout_constraintStart_toStartOf="@+id/etSearch"
+        app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+    <TextView
+        android:id="@+id/tvSearch"
+        android:layout_width="56dp"
+        android:layout_height="0dp"
+        android:background="@drawable/home_searchbg"
+        android:gravity="center"
+        android:text="搜索"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+        app:layout_constraintEnd_toStartOf="@+id/ivScan"
+        app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+    <ImageView
+        android:id="@+id/ivScan"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:padding="11dp"
+        android:src="@drawable/home_scan_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

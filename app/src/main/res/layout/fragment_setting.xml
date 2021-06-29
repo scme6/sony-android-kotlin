@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/day_night_white_danhei"
+        android:gravity="center"
+        android:text="@string/title_main_setting"
+        android:textColor="@color/day_night_white_font_gray1"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/day_night_white_danhei"
+        app:layout_constraintBottom_toBottomOf="@+id/update_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/push_tv" />
+
+    <TextView
+        android:id="@+id/push_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_push"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
+    <CheckBox
+        android:id="@+id/cbAllowPushNotification"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/fragment_layout_setting_checkbox_bg"
+        android:button="@null"
+        android:checked="false"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/push_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/push_tv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/day_night_divider_gray"
+        app:layout_constraintTop_toBottomOf="@+id/push_tv" />
+
+    <TextView
+        android:id="@+id/clern_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_clear"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/push_tv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/day_night_divider_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clern_tv" />
+
+    <TextView
+        android:id="@+id/update_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_updatevision"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clern_tv" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/day_night_white_danhei"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrivacyPolicy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPermissionSetting" />
+
+    <TextView
+        android:id="@+id/tvPermissionSetting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_perimission_setting"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_tv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/day_night_divider_gray"
+        app:layout_constraintTop_toBottomOf="@+id/tvPermissionSetting" />
+
+    <TextView
+        android:id="@+id/tvPrivacyPolicy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_privacy_policy"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPermissionSetting" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/day_night_white_danhei"
+        app:layout_constraintBottom_toBottomOf="@+id/about_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/help_tv" />
+
+    <TextView
+        android:id="@+id/help_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_help"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrivacyPolicy" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/day_night_divider_gray"
+        app:layout_constraintTop_toBottomOf="@+id/help_tv" />
+
+    <TextView
+        android:id="@+id/about_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/setting_about"
+        android:textColor="@color/day_night_gray1font"
+        android:textSize="16sp"
+        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
