@@ -27,73 +27,28 @@
 
         <RadioButton
             android:id="@+id/homeButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?selectableItemBackgroundBorderless"
-            android:button="@null"
-            android:drawableTop="@drawable/select_home_menu"
-            android:gravity="center"
-            android:paddingTop="5dp"
-            android:text="@string/title_main_home"
-            android:textColor="@color/selector_bottom_menu"
-            android:textSize="12sp" />
+            style="@style/BottomNavigationStyle"
+            android:text="@string/title_main_home" />
 
         <RadioButton
             android:id="@+id/productButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?selectableItemBackgroundBorderless"
-            android:button="@null"
-            android:drawableTop="@drawable/select_home_menu"
-            android:gravity="center"
-            android:paddingTop="5dp"
-            android:text="@string/title_main_product"
-            android:textColor="@color/selector_bottom_menu"
-            android:textSize="12sp" />
+            style="@style/BottomNavigationStyle"
+            android:text="@string/title_main_product" />
 
         <RadioButton
             android:id="@+id/shoppingCardButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?selectableItemBackgroundBorderless"
-            android:button="@null"
-            android:drawableTop="@drawable/select_home_menu"
-            android:gravity="center"
-            android:paddingTop="5dp"
-            android:text="@string/title_main_shopping_cart"
-            android:textColor="@color/selector_bottom_menu"
-            android:textSize="12sp" />
+            style="@style/BottomNavigationStyle"
+            android:text="@string/title_main_shopping_cart" />
 
         <RadioButton
             android:id="@+id/myButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?selectableItemBackgroundBorderless"
-            android:button="@null"
-            android:drawableTop="@drawable/select_home_menu"
-            android:gravity="center"
-            android:paddingTop="5dp"
-            android:text="@string/title_main_my"
-            android:textColor="@color/selector_bottom_menu"
-            android:textSize="12sp" />
+            style="@style/BottomNavigationStyle"
+            android:text="@string/title_main_my" />
 
         <RadioButton
             android:id="@+id/settingButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?selectableItemBackgroundBorderless"
-            android:button="@null"
-            android:drawableTop="@drawable/select_home_menu"
-            android:gravity="center"
-            android:paddingTop="5dp"
-            android:text="@string/title_main_setting"
-            android:textColor="@color/selector_bottom_menu"
-            android:textSize="12sp" />
+            style="@style/BottomNavigationStyle"
+            android:text="@string/title_main_setting" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
