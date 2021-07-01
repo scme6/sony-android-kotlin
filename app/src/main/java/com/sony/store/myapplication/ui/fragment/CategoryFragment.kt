@@ -1,12 +1,10 @@
-package com.sony.store.myapplication.ui
+package com.sony.store.myapplication.ui.fragment
 
-import android.os.Bundle
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -14,9 +12,9 @@ import com.sony.store.myapplication.R
 import com.sony.store.myapplication.adapter.CategoryLeftAdapter
 import com.sony.store.myapplication.adapter.CategoryRightAdapter
 import com.sony.store.myapplication.base.BaseFragment
+import com.sony.store.myapplication.ui.activity.SearchActivity
 import kotlinx.android.synthetic.main.fragment_category.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.android.synthetic.main.include_search.*
 
 /**
  * @Description 一级 产品模块
@@ -65,6 +63,20 @@ class CategoryFragment : BaseFragment() {
             viewPager2.setCurrentItem(it, false)
             recyclerView.scrollToPosition(it)
         })
+        etSearch.setOnClickListener {
+            toSearchActivity()
+        }
+        tvSearch.setOnClickListener {
+            toSearchActivity()
+        }
+    }
+
+    /**
+     * 搜索
+     * 添加统计 跳转等等
+     */
+    private fun toSearchActivity() {
+        startActivity(Intent(requireContext(), SearchActivity::class.java))
     }
 
 

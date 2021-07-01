@@ -1,4 +1,4 @@
-package com.sony.store.myapplication.ui
+package com.sony.store.myapplication.ui.fragment
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

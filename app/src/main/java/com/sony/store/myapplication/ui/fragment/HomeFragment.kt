@@ -1,14 +1,14 @@
-package com.sony.store.myapplication.ui
+package com.sony.store.myapplication.ui.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
+import android.content.Intent
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sony.store.myapplication.R
 import com.sony.store.myapplication.adapter.MainListAdapter
 import com.sony.store.myapplication.base.BaseFragment
+import com.sony.store.myapplication.ui.activity.SearchActivity
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.include_search.*
 
 /**
  * @Description 一级 首页
@@ -23,6 +23,22 @@ class HomeFragment : BaseFragment() {
         listAdapter.onTabsLoaded()
         main_recycler_view.layoutManager = LinearLayoutManager(requireContext())
         main_recycler_view.adapter = listAdapter
+
+        etSearch.setOnClickListener {
+            toSearchActivity()
+        }
+        tvSearch.setOnClickListener {
+            toSearchActivity()
+        }
     }
+
+    /**
+     * 搜索
+     * 添加统计 跳转等等
+    */
+    private fun toSearchActivity() {
+        startActivity(Intent(requireContext(), SearchActivity::class.java))
+    }
+
 
 }

@@ -3,9 +3,9 @@ package com.sony.store.myapplication
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.sony.store.myapplication.base.BaseActivity
-import com.sony.store.myapplication.ui.CategoryFragment
-import com.sony.store.myapplication.ui.HomeFragment
-import com.sony.store.myapplication.ui.SettingFragment
+import com.sony.store.myapplication.ui.fragment.CategoryFragment
+import com.sony.store.myapplication.ui.fragment.HomeFragment
+import com.sony.store.myapplication.ui.fragment.SettingFragment
 import com.sony.store.myapplication.utils.UIUtil.dip2px
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -74,7 +74,8 @@ class MainActivity : BaseActivity() {
                 homeFragment?.let {
                     mBeginTransaction.show(it)
                 }?:let{
-                    homeFragment = HomeFragment()
+                    homeFragment =
+                        HomeFragment()
                     homeFragment?.let {it2->
                         mBeginTransaction.add(R.id.mFrameLayout, it2, TAG_HOME)
                     }
@@ -84,7 +85,8 @@ class MainActivity : BaseActivity() {
                 categoryFragment?.let {
                     mBeginTransaction.show(it)
                 }?:let{
-                    categoryFragment = CategoryFragment()
+                    categoryFragment =
+                        CategoryFragment()
                     categoryFragment?.let {it2->
                         mBeginTransaction.add(R.id.mFrameLayout, it2, TAG_CATEGORY)
                     }
@@ -98,7 +100,8 @@ class MainActivity : BaseActivity() {
                 settingFragment?.let {
                     mBeginTransaction.show(it)
                 }?:let{
-                    settingFragment = SettingFragment()
+                    settingFragment =
+                        SettingFragment()
                     settingFragment?.let {it2->
                         mBeginTransaction.add(R.id.mFrameLayout, it2, TAG_SETTING)
                     }

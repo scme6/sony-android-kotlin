@@ -1,15 +1,11 @@
-package com.sony.store.myapplication.ui
+package com.sony.store.myapplication.ui.fragment
 
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.sony.store.myapplication.R
 import com.sony.store.myapplication.adapter.FeedsListAdapter
 import com.sony.store.myapplication.base.BaseFragment
-import com.sony.store.myapplication.widget.recyclerview.RecyclerViewAtViewPager2
-import com.stone.persistent.recyclerview.library.ChildRecyclerView
 import kotlinx.android.synthetic.main.fragment_category_right.*
 
 /**

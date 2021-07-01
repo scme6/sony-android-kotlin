@@ -7,13 +7,22 @@
 
     <include layout="@layout/include_search" />
 
-    <com.stone.persistent.recyclerview.library.ParentRecyclerView
-        android:id="@+id/main_recycler_view"
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rlSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/rlSearch">
 
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.stone.persistent.recyclerview.library.ParentRecyclerView
+            android:id="@+id/main_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

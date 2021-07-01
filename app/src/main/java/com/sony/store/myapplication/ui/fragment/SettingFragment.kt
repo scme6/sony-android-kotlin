@@ -1,4 +1,4 @@
-package com.sony.store.myapplication.ui
+package com.sony.store.myapplication.ui.fragment
 
 import android.view.View
 import com.sony.store.myapplication.R

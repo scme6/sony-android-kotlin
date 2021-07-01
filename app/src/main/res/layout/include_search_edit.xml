@@ -9,21 +9,23 @@
         android:id="@+id/ivSearchBg"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#ffffff"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
         android:id="@+id/etSearch"
         android:layout_width="0dp"
         android:layout_height="30dp"
-        android:layout_marginStart="10dp"
         android:background="@drawable/home_editbg"
+        android:completionThreshold="1"
         android:gravity="center_vertical"
         android:hint="请输入关键词"
-        android:paddingLeft="30dp"
+        android:lines="1"
+        android:paddingStart="35dp"
+        android:paddingEnd="90dp"
+        android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/ivSearchBg"
         app:layout_constraintEnd_toEndOf="@+id/tvSearch"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,18 +52,19 @@
         android:textColor="@android:color/white"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/etSearch"
-        app:layout_constraintEnd_toStartOf="@+id/ivScan"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etSearch" />
 
-    <ImageView
-        android:id="@+id/ivScan"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerVertical="true"
-        android:padding="11dp"
-        android:src="@drawable/home_scan_black"
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/clear"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="6dp"
+        android:src="@mipmap/searchdel"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvSearch"
         app:layout_constraintTop_toTopOf="parent" />
 
 

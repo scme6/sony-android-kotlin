@@ -1,13 +1,8 @@
 package com.sony.store.myapplication.adapter
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.sony.store.myapplication.R
-import com.sony.store.myapplication.adapter.viewholder.CategoryRightViewHolder
-import com.sony.store.myapplication.ui.CategoryRightFragment
+import com.sony.store.myapplication.ui.fragment.CategoryRightFragment
 
 class CategoryRightAdapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
@@ -16,7 +11,7 @@ class CategoryRightAdapter(fragment: Fragment) :
     }
 
     override fun createFragment(position: Int): Fragment {
-     return   CategoryRightFragment()
+     return CategoryRightFragment()
     }
 }
 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_topic_dialog"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="0.7"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="title" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:gravity="center"
+        android:paddingStart="15dp"
+        android:paddingTop="25dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogTitle" />
+
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginBottom="50dp"
+        android:background="#F1F1F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/negative"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="取消"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:theme="@style/Theme.MaterialComponents"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/message"
+        app:rippleColor="@color/black" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/positive"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="确定"
+        android:textColor="#E01D36"
+        android:textSize="16sp"
+        android:theme="@style/Theme.MaterialComponents"
+        app:layout_constraintLeft_toRightOf="@+id/guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message"
+        app:rippleColor="#E01D36" />
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#F1F1F1"
+        app:layout_constraintBottom_toBottomOf="@+id/positive"
+        app:layout_constraintEnd_toEndOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/horizontalLine" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
