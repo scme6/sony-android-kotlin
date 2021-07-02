@@ -1,7 +1,10 @@
 package com.sony.store.myapplication.ui.fragment
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sony.store.myapplication.R
 import com.sony.store.myapplication.adapter.MainListAdapter
@@ -16,14 +19,25 @@ import kotlinx.android.synthetic.main.include_search.*
  * @date: 2021-06-27
  */
 class HomeFragment : BaseFragment() {
+
+    private val homeViewModel by viewModels<HomeViewModel>()
+    private val mainListAdapter by lazy {
+        MainListAdapter(this)
+    }
+
     override fun setContentView() = R.layout.fragment_home
 
     override fun initView(view: View) {
-        val listAdapter = MainListAdapter(this)
-        listAdapter.onTabsLoaded()
-        main_recycler_view.layoutManager = LinearLayoutManager(requireContext())
-        main_recycler_view.adapter = listAdapter
+        main_recycler_view.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = mainListAdapter
+        }
+        homeViewModel.nweIndexData.observe(this, Observer {
+            it?.let {
+                mainListAdapter.setHomeData(it)
 
+            }
+        })
         etSearch.setOnClickListener {
             toSearchActivity()
         }
@@ -35,7 +49,7 @@ class HomeFragment : BaseFragment() {
     /**
      * 搜索
      * 添加统计 跳转等等
-    */
+     */
     private fun toSearchActivity() {
         startActivity(Intent(requireContext(), SearchActivity::class.java))
     }

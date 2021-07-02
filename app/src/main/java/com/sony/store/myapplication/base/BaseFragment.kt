@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import kotlinx.coroutines.CoroutineExceptionHandler
 
 /**
  * @Description
@@ -14,7 +15,6 @@ import androidx.fragment.app.Fragment
  */
 abstract class BaseFragment : Fragment() {
 
-     val TAG=this.javaClass.simpleName
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

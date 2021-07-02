@@ -5,15 +5,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sony.store.myapplication.R
+import com.sony.store.myapplication.*
 import com.sony.store.myapplication.adapter.viewholder.*
+import com.sony.store.myapplication.model.NewIndexModel
+import com.sony.store.myapplication.model.NewIndexModelItem
 
 class MainListAdapter(private val mFragment: Fragment) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var tabsLoaded = false
 
-    private var loadingTabsListener: (() -> Unit)? = null
+
+    private var homeList : List<NewIndexModelItem> = emptyList<NewIndexModelItem>()
+
+    fun setHomeData(homeList : List<NewIndexModelItem>){
+        this.homeList=homeList
+        notifyDataSetChanged()
+    }
 
     companion object {
         // 轮播图
@@ -57,33 +64,29 @@ class MainListAdapter(private val mFragment: Fragment) :
 
         //底部推荐产品  会员专区
         private const val VIEW_TYPE_FEEDS = 13
-
-        private const val VIEW_TYPE_LOADING_TABS = 14
     }
 
-    override fun getItemViewType(position: Int): Int = when (position) {
-        0 -> VIEW_TYPE_CAROUSEL
-        1 -> VIEW_TYPE_1_BIG_BANNER
-        2 -> VIEW_TYPE_2_BIG_BANNER_PRODUCT
-        3 -> VIEW_TYPE_3_BIG_BANNER
-        4 -> VIEW_TYPE_MENU
-        5 -> VIEW_TYPE_MEMBER_REGISTRATION
-        6 -> VIEW_TYPE_NOTICE
-        7 -> VIEW_TYPE_FLASH_BUY
-        8 -> VIEW_TYPE_INSTALMENT
-        9 -> VIEW_TYPE_VIEW_PAGER
-        10 -> VIEW_TYPE_NEW_PRODUCT
-        11 -> VIEW_TYPE_4_BIG_BANNER
-        12 -> VIEW_TYPE_LIVE_STREAMING
-        13 -> if (tabsLoaded) VIEW_TYPE_FEEDS else VIEW_TYPE_LOADING_TABS
+    override fun getItemViewType(position: Int): Int = when (homeList[position+1].label) {
+        MAIN_KV -> VIEW_TYPE_CAROUSEL
+        _1_BIG_BANNER -> VIEW_TYPE_1_BIG_BANNER
+        _2_BIG_BANNER_PRODUCT -> VIEW_TYPE_2_BIG_BANNER_PRODUCT
+        _3_BIG_BANNER-> VIEW_TYPE_3_BIG_BANNER
+        MENU -> VIEW_TYPE_MENU
+        MEMBER_REGISTRATION -> VIEW_TYPE_MEMBER_REGISTRATION
+        NOTICE -> VIEW_TYPE_NOTICE
+        FLASHBUY -> VIEW_TYPE_FLASH_BUY
+        INSTANMENT -> VIEW_TYPE_INSTALMENT
+        SUB_KV -> VIEW_TYPE_VIEW_PAGER
+        NEW_PRODUCTIS -> VIEW_TYPE_NEW_PRODUCT
+        _4_BIG_BANNER -> VIEW_TYPE_4_BIG_BANNER
+        LIVE -> VIEW_TYPE_LIVE_STREAMING
+        PC_BLOCK_KV_DI -> VIEW_TYPE_FEEDS
         else -> -1
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
         val inflater = LayoutInflater.from(parent.context)
-
         return when (viewType) {
             VIEW_TYPE_CAROUSEL -> {
                 // 轮播图
@@ -159,25 +162,25 @@ class MainListAdapter(private val mFragment: Fragment) :
         }
     }
 
-    override fun getItemCount(): Int = 14
+    override fun getItemCount(): Int = homeList.size-4
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is HomeBannerViewHolder -> {
-                holder.bindTo()
+                holder.bindTo(homeList[position+1].items)
             }
             is HomeImage1ViewHolder -> {
-                holder.bindTo()
+                holder.bindTo(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is Home2BigBannerProductViewHolder -> {
-
+                holder.bindTo(homeList[position+1].items)
             }
             is Home3BigBannerViewHolder -> {
-
+                holder.bindTo(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is HomeMenuViewHolder -> {
                 holder as HomeMenuViewHolder
-                holder.bindTo1()
+                holder.bindTo1(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is HomeMemberRegistrationViewHolder -> {
 
@@ -206,18 +209,5 @@ class MainListAdapter(private val mFragment: Fragment) :
                 holder.bindTo()
             }
         }
-
-    }
-
-    fun setLoadingTabsListener(listener: () -> Unit) {
-        this.loadingTabsListener = listener
-    }
-
-    /**
-     * tabs加载完成
-     */
-    fun onTabsLoaded() {
-        this.tabsLoaded = true
-        this.notifyItemChanged(7)
     }
 }

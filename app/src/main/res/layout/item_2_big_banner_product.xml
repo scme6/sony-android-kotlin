@@ -11,8 +11,8 @@
         android:id="@+id/c1"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
         android:layout_weight="1"
         app:cardCornerRadius="9dp"
         app:cardElevation="0dp">
@@ -25,21 +25,21 @@
                 android:id="@+id/view_two_img"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:scaleType="fitXY"></ImageView>
+                android:scaleType="fitXY"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="6dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="2dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="2dp"
                 android:paddingBottom="6dp">
 
                 <ImageView
                     android:id="@+id/iv"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:scaleType="fitXY" />
 
@@ -53,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
-                        android:paddingLeft="4dp"
+                        android:paddingStart="4dp"
                         android:paddingTop="10dp"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -65,7 +65,7 @@
                         android:ellipsize="end"
                         android:gravity="center_vertical"
                         android:lines="2"
-                        android:paddingLeft="4dp"
+                        android:paddingStart="4dp"
                         android:textColor="@color/black"
                         android:textSize="10sp" />
 
@@ -76,7 +76,7 @@
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:padding="2dp"
-                        android:paddingRight="5dp"
+                        android:paddingEnd="5dp"
                         android:paddingBottom="2dp">
 
                         <TextView
@@ -91,7 +91,7 @@
                             android:id="@+id/tvPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="2dp"
+                            android:layout_marginStart="2dp"
                             android:textColor="@color/black"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -99,7 +99,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="2dp"
+                            android:layout_marginStart="2dp"
                             android:background="@drawable/bg_black_round2"
                             android:gravity="center"
                             android:paddingLeft="2dp"

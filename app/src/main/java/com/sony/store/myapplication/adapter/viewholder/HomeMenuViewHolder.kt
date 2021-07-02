@@ -4,14 +4,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sony.store.myapplication.adapter.HomeMenuAdapter
+import com.sony.store.myapplication.model.Item
 import kotlinx.android.synthetic.main.item_menu.view.*
 
 class HomeMenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bindTo1() {
+
+    fun bindTo1(backgroundImage:String,menuData: List<Item>) {
         val mLayoutManager = GridLayoutManager(itemView.context,2,LinearLayoutManager.HORIZONTAL,false)
         itemView.recyclerView.apply {
             layoutManager = mLayoutManager
-            adapter = HomeMenuAdapter()
+            adapter = HomeMenuAdapter(menuData)
         }
         itemView.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
