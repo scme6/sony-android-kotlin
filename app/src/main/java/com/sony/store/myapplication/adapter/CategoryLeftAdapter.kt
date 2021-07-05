@@ -7,6 +7,9 @@ import com.sony.store.myapplication.R
 import com.sony.store.myapplication.adapter.viewholder.CategoryLeftViewHolder
 import kotlinx.android.synthetic.main.item_category_left.view.*
 
+/**
+ * 产品页 左侧
+ */
 class CategoryLeftAdapter : RecyclerView.Adapter<CategoryLeftViewHolder>() {
 
     private var onItemClickListener: ((position: Int) -> Unit)? = null

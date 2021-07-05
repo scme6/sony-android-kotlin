@@ -34,14 +34,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         getNewIndexData()
-//        getPrdPrice2()
+        getPim()
+        getRecommendInstallmentList()
     }
 
     /**
      * 首页数据
      */
     private fun getNewIndexData() = viewModelScope.launch(coroutineExceptionHandler) {
-        val mNewIndexData = RetrofitClient.apiService.getNewIndexData()
+        val mNewIndexData = RetrofitClient.getInstance().getNewIndexData()
         val priceNewIndexModel = mNewIndexData.filterIndexed { index, newIndexModelItem ->
             newIndexModelItem.label == _2_BIG_BANNER_PRODUCT
         }.first()
@@ -50,12 +51,13 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             if (item.price.isEmpty()) {
                 priceNewIndexModelItemsIndex = index
                 try {
-                    val priceModel = RetrofitClient.apiService.getPrdPrice(getPrdPrice(item.eightD))
-                    mNewIndexData.forEach {it2->
-                        if (it2.label == _2_BIG_BANNER_PRODUCT){
-                            it2.items.forEach {it3->
-                                if (it3.eightD==priceModel.data.eightcode){
-                                    it3.price=priceModel.data.productprice.price.toString()
+                    val priceModel =
+                        RetrofitClient.getInstance().getPrdPrice(getPrdPrice(item.eightD))
+                    mNewIndexData.forEach { it2 ->
+                        if (it2.label == _2_BIG_BANNER_PRODUCT) {
+                            it2.items.forEach { it3 ->
+                                if (it3.eightD == priceModel.data.eightcode) {
+                                    it3.price = priceModel.data.productprice.price.toString()
                                 }
                             }
                         }
@@ -80,24 +82,63 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         return map
     }
 
+    /**
+     * 根据秒杀 分期数据中 "eightDs":"P80819076,P92480104,P43033968,P32829525,P32847676,P92486704"
+     * 查询秒杀 分期中的数据
+     */
 
-    private fun getPrdPrice2() {
-        val map: MutableMap<String, String> = mutableMapOf()
+    private fun getRecommendInstallmentList() {
+        val map: MutableMap<String, Any> = mutableMapOf()
         map.put("basestore", "SS");
         map.put("channel", "APP");
-        map.put("eightcode", "P17063180");
+        map.put(
+            "productIds",
+            arrayOf<String>(
+                "P32829425",
+                "P92487206",
+                "P43040277",
+                "P43040182",
+                "P50003869",
+                "P32844276",
+                "P32845776"
+            )
+        );
         map.put("pval", "")
-        RetrofitClient.apiService.getPrdPrice2(map).enqueue(object : Callback<ResponseBody> {
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+        RetrofitClient.getInstance().getRecommendInstallmentList(map)
+            .enqueue(object : Callback<ResponseBody> {
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
 
-            }
+                }
 
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                val st = response.body()?.string()
-                Log.e("TAG", st.toString())
-            }
-        })
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    val st = response.body()?.string()
+                    Log.e("TAG", st.toString())
+                }
+            })
     }
 
+    private fun getPim() {
+        val map: MutableMap<String, String> = mutableMapOf()
+        map.put("eightD", "P32829425");
+        map.put("method", "findMasterData");
+        map.put("t", "${System.currentTimeMillis()}")
+        RetrofitClient.getInstance().getPim(map)
+            .enqueue(object : Callback<ResponseBody> {
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    val st = response.body()?.string()
+                    Log.e("TAG", st.toString())
+                }
+            })
+    }
 
 }

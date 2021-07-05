@@ -7,6 +7,10 @@ package com.sony.store.myapplication
  */
 const val BASE_IMAGE_URL = "https://www.sonystyle.com.cn/"
 const val BASE_URL = "https://www.sonystyle.com.cn/"
+const val CONNECT_TIMEOUT=10L
+const val READ_TIMEOUT=10L
+const val WRITE_TIMEOUT=10L
+
 
 //Fragment Tag
 const val TAG_HOME = "HomeFragment"

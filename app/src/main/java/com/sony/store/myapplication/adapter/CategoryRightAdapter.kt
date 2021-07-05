@@ -4,6 +4,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.sony.store.myapplication.ui.fragment.CategoryRightFragment
 
+
+/**
+ * 产品也 右侧
+ */
 class CategoryRightAdapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {

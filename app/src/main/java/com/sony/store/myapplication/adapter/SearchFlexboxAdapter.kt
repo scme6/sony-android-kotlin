@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sony.store.myapplication.R
 import kotlinx.android.synthetic.main.item_flexbox.view.*
 
+/**
+ * 搜索页面中 浏览历史 推荐搜索等流式布局
+ */
 class SearchFlexboxAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var list= emptyList<String>()

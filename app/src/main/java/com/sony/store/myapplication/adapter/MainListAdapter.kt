@@ -10,6 +10,9 @@ import com.sony.store.myapplication.adapter.viewholder.*
 import com.sony.store.myapplication.model.NewIndexModel
 import com.sony.store.myapplication.model.NewIndexModelItem
 
+/**
+ * 首页
+ */
 class MainListAdapter(private val mFragment: Fragment) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -170,7 +173,7 @@ class MainListAdapter(private val mFragment: Fragment) :
                 holder.bindTo(homeList[position+1].items)
             }
             is HomeImage1ViewHolder -> {
-                holder.bindTo(homeList[position+1].backgroundImage,homeList[position+1].items)
+                holder.bindTo1BigBanner(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is Home2BigBannerProductViewHolder -> {
                 holder.bindTo(homeList[position+1].items)
@@ -183,10 +186,11 @@ class MainListAdapter(private val mFragment: Fragment) :
                 holder.bindTo1(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is HomeMemberRegistrationViewHolder -> {
-
+                holder. bindTo(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is NoticeViewHolder -> {
                 holder as NoticeViewHolder
+                holder. bindTo(homeList[position+1].items)
             }
             is HomeFlashBuyViewHolder -> {
                 holder as HomeFlashBuyViewHolder
@@ -203,6 +207,9 @@ class MainListAdapter(private val mFragment: Fragment) :
             is HomeNewProductViewHolder -> {
                 holder as HomeNewProductViewHolder
                 holder.bindTo()
+            }
+            is Home4BigBannerViewHolder->{
+                holder.bindTo(homeList[position+1].backgroundImage,homeList[position+1].items)
             }
             is HomeLiveStreamingViewHolder -> {
                 holder as HomeLiveStreamingViewHolder
