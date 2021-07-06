@@ -25,6 +25,9 @@ class HomeFragment : BaseFragment() {
         MainListAdapter(this)
     }
 
+    override fun init() {
+    }
+
     override fun setContentView() = R.layout.fragment_home
 
     override fun initView(view: View) {

@@ -15,6 +15,8 @@ class CategoryRightFragment : BaseFragment() {
 
 
     private val categoryViewModel by activityViewModels<CategoryViewModel>()
+    override fun init() {
+    }
 
     override fun setContentView(): Any {
         return R.layout.fragment_category_right

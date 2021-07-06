@@ -18,7 +18,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -66,5 +65,10 @@ dependencies {
     //
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
+    //ARIA  下载管理
+    implementation 'com.arialyy.aria:core:3.8.12'
+    annotationProcessor 'com.arialyy.aria:compiler:3.8.12'
+
 
 }

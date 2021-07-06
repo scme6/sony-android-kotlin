@@ -20,6 +20,7 @@ abstract class BaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        init()
         return if (setContentView() is View)
             setContentView() as View
         else
@@ -30,7 +31,7 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView(view)
     }
-
+    abstract fun init()
     abstract fun setContentView(): Any
     abstract fun initView(view: View)
 

@@ -8,6 +8,8 @@ import com.sony.store.myapplication.base.BaseFragment
 import com.stone.persistent.recyclerview.library.ChildRecyclerView
 
 class FeedsListFragment : BaseFragment() {
+    override fun init() {
+    }
 
     override fun setContentView(): Any {
         return ChildRecyclerView(requireContext()).apply {

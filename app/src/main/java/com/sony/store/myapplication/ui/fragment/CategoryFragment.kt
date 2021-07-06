@@ -26,6 +26,8 @@ class CategoryFragment : BaseFragment() {
 
 
     private val categoryViewModel by activityViewModels<CategoryViewModel>()
+    override fun init() {
+    }
 
     override fun setContentView(): Int {
         return R.layout.fragment_category
