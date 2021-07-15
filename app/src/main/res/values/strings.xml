@@ -16,4 +16,5 @@
     <string name="deleteHistoryMessage">要清空搜索记录吗？</string>
     <string name="button_positive">确定</string>
     <string name="button_negative">取消</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.sony.store.myapplication.ui.activity
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,6 +20,7 @@ import com.google.android.flexbox.JustifyContent
 import com.sony.store.myapplication.R
 import com.sony.store.myapplication.adapter.SearchFlexboxAdapter
 import com.sony.store.myapplication.base.BaseActivity
+import com.sony.store.myapplication.ui.details.DetailsActivity
 import com.sony.store.myapplication.widget.dialog.TopicDialog
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.include_search_edit.*
@@ -92,6 +94,9 @@ class SearchActivity : BaseActivity() {
         }
         clear.setOnClickListener {
             etSearch.setText("")
+        }
+        tvSearch.setOnClickListener {
+            startActivity(Intent(this,DetailsActivity::class.java))
         }
     }
 

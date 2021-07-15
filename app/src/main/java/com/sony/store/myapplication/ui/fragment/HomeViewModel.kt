@@ -33,9 +33,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         get() = _nweIndexData
 
     init {
+
+
         getNewIndexData()
         getPim()
         getRecommendInstallmentList()
+        getCategorys()
     }
 
     /**
@@ -140,5 +143,29 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 }
             })
     }
+
+
+    private fun getCategorys() {
+        val map: MutableMap<String, String> = mutableMapOf()
+        map.put("index", "-1");
+        map.put("channel", "mobile");
+        map.put("get", "4");
+        RetrofitClient.getInstance().getCategorys(map)
+            .enqueue(object : Callback<ResponseBody> {
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseBody>,
+                    response: Response<ResponseBody>
+                ) {
+                    val st = response.body()?.string()
+                    Log.e("TAG", st.toString())
+                }
+            })
+    }
+
+
 
 }

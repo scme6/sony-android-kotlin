@@ -1,13 +1,22 @@
 package com.sony.store.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sony.store.myapplication.base.BaseActivity
+import com.sony.store.myapplication.ui.activity.WebViewActivity
 import com.sony.store.myapplication.ui.fragment.CategoryFragment
 import com.sony.store.myapplication.ui.fragment.HomeFragment
 import com.sony.store.myapplication.ui.fragment.SettingFragment
 import com.sony.store.myapplication.utils.UIUtil.dip2px
+import com.sony.store.myapplication.widget.DownloadProgress
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 
 class MainActivity : BaseActivity() {
 
@@ -19,9 +28,11 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         savedInstanceState?.let {
-            homeFragment= supportFragmentManager.findFragmentByTag(TAG_HOME) as HomeFragment?
-            categoryFragment= supportFragmentManager.findFragmentByTag(TAG_HOME) as CategoryFragment?
-            settingFragment= supportFragmentManager.findFragmentByTag(TAG_SETTING) as SettingFragment?
+            homeFragment = supportFragmentManager.findFragmentByTag(TAG_HOME) as HomeFragment?
+            categoryFragment =
+                supportFragmentManager.findFragmentByTag(TAG_HOME) as CategoryFragment?
+            settingFragment =
+                supportFragmentManager.findFragmentByTag(TAG_SETTING) as SettingFragment?
         }
         initView()
     }
@@ -73,10 +84,10 @@ class MainActivity : BaseActivity() {
             R.id.homeButton -> {
                 homeFragment?.let {
                     mBeginTransaction.show(it)
-                }?:let{
+                } ?: let {
                     homeFragment =
                         HomeFragment()
-                    homeFragment?.let {it2->
+                    homeFragment?.let { it2 ->
                         mBeginTransaction.add(R.id.mFrameLayout, it2, TAG_HOME)
                     }
                 }
@@ -84,25 +95,26 @@ class MainActivity : BaseActivity() {
             R.id.productButton -> {
                 categoryFragment?.let {
                     mBeginTransaction.show(it)
-                }?:let{
+                } ?: let {
                     categoryFragment =
                         CategoryFragment()
-                    categoryFragment?.let {it2->
+                    categoryFragment?.let { it2 ->
                         mBeginTransaction.add(R.id.mFrameLayout, it2, TAG_CATEGORY)
                     }
                 }
             }
             R.id.shoppingCardButton -> {
+                startActivity(Intent(this@MainActivity, WebViewActivity::class.java))
             }
             R.id.myButton -> {
             }
             R.id.settingButton -> {
                 settingFragment?.let {
                     mBeginTransaction.show(it)
-                }?:let{
+                } ?: let {
                     settingFragment =
                         SettingFragment()
-                    settingFragment?.let {it2->
+                    settingFragment?.let { it2 ->
                         mBeginTransaction.add(R.id.mFrameLayout, it2, TAG_SETTING)
                     }
                 }
@@ -110,4 +122,44 @@ class MainActivity : BaseActivity() {
         }
         mBeginTransaction.commitAllowingStateLoss()
     }
+
+    private fun shareDialog() {
+        val dialog = BottomSheetDialog(this, R.style.BottomSheetDialog)
+        dialog.setContentView(R.layout.dialog_share)
+        dialog.setCancelable(false)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.findViewById<TextView>(R.id.weChat)?.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.findViewById<TextView>(R.id.moments)?.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.findViewById<TextView>(R.id.qq)?.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.findViewById<TextView>(R.id.qqZone)?.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.findViewById<TextView>(R.id.sina)?.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.findViewById<TextView>(R.id.cancel)?.setOnClickListener {
+            dialog.dismiss()
+        }
+//        dialog.findViewById<DownloadProgress>(R.id.button)?.apply {
+//            setState(DownloadProgress.STATE_DOWNLOADING);
+//            var progress=0
+//            lifecycleScope.launch {
+//                repeat(20){
+//                    progress+=5
+//                    setProgressText("下载中", progress.toFloat());
+//                    delay(1000)
+//                }
+//            }
+//
+//        }
+        dialog.show()
+    }
+
+
 }

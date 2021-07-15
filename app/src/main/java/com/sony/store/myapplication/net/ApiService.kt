@@ -1,6 +1,6 @@
 package com.sony.store.myapplication.net
 
-import com.sony.store.myapplication.BASE_URL
+import com.google.gson.JsonObject
 import com.sony.store.myapplication.model.NewIndexModel
 import com.sony.store.myapplication.model.PriceModel
 import okhttp3.ResponseBody
@@ -10,6 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.QueryMap
 import java.util.*
+
 
 interface ApiService {
 
@@ -31,7 +32,8 @@ interface ApiService {
     @POST("b2csearch/esapi/product/pricepromotion")
     fun getPrdPrice2(@Body map: Map<String, String>): Call<ResponseBody>
 
-
+    @GET("services/sonystyle/index/search")
+    fun getCategorys(@QueryMap map: Map<String, String>): Call<ResponseBody>
     /**
      *
      *
