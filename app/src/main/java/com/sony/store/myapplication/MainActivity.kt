@@ -14,7 +14,9 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.sony.store.myapplication.base.BaseActivity
+import com.sony.store.myapplication.ui.activity.EditTextActivity
 import com.sony.store.myapplication.ui.activity.SearchActivity
+import com.sony.store.myapplication.ui.activity.SmsCode
 import com.sony.store.myapplication.ui.activity.WebViewActivity
 import com.sony.store.myapplication.ui.fragment.CategoryFragment
 import com.sony.store.myapplication.ui.fragment.HomeFragment
@@ -42,7 +44,10 @@ class MainActivity : BaseActivity() {
                 supportFragmentManager.findFragmentByTag(TAG_SETTING) as SettingFragment?
         }
         initView()
-        sendNotification()
+//        sendNotification()
+
+        startActivity(Intent(this,SmsCode::class.java))
+
     }
 
     private fun initView() {

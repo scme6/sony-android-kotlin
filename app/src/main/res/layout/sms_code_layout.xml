@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+    <com.sony.store.myapplication.widget.PhoneCode
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/edit"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:codeLength="4"
+        app:codeMargin="10dp"
+        app:codeStyle="1002"
+        app:codeTextColor="@color/black"
+        app:codeTextSize="24sp"
+        app:focusContentColor="#fff"
+        app:focusStrokeColor="#eb6951"
+        app:isNumber="false"
+        app:isShowPwd="false"
+        app:normalContentColor="#fff"
+        app:normalStrokeColor="#eee"
+        app:strokeSize="5dp"
+        app:tvHeight="45dp"
+        app:tvWidth="45dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

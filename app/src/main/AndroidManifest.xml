@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sony.store.myapplication">
 
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- ARIA  下载开始 -->
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.activity.WebViewActivity"></activity>
+        <activity android:name=".ui.activity.SmsCode" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.EditTextActivity" />
+        <activity android:name=".ui.activity.WebViewActivity"/>
         <activity android:name=".ui.details.DetailsActivity" />
         <activity
             android:name=".ui.activity.SearchActivity"

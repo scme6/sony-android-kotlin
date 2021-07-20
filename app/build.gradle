@@ -70,5 +70,8 @@ dependencies {
     implementation 'com.arialyy.aria:core:3.8.12'
     annotationProcessor 'com.arialyy.aria:compiler:3.8.12'
 
+    //
+//    implementation 'com.longer:verifycode:1.0.4'
+
 
 }
