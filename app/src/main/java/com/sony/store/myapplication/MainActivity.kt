@@ -136,45 +136,6 @@ class MainActivity : BaseActivity() {
         mBeginTransaction.commitAllowingStateLoss()
     }
 
-    private fun shareDialog() {
-        val dialog = BottomSheetDialog(this, R.style.BottomSheetDialog)
-        dialog.setContentView(R.layout.dialog_share)
-        dialog.setCancelable(false)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.findViewById<TextView>(R.id.weChat)?.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.findViewById<TextView>(R.id.moments)?.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.findViewById<TextView>(R.id.qq)?.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.findViewById<TextView>(R.id.qqZone)?.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.findViewById<TextView>(R.id.sina)?.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.findViewById<TextView>(R.id.cancel)?.setOnClickListener {
-            dialog.dismiss()
-        }
-//        dialog.findViewById<DownloadProgress>(R.id.button)?.apply {
-//            setState(DownloadProgress.STATE_DOWNLOADING);
-//            var progress=0
-//            lifecycleScope.launch {
-//                repeat(20){
-//                    progress+=5
-//                    setProgressText("下载中", progress.toFloat());
-//                    delay(1000)
-//                }
-//            }
-//
-//        }
-        dialog.show()
-    }
-
-
     private fun sendNotification(){
        val intent=PendingIntent.getActivity(this, 123, Intent(this,SearchActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT)
        notification("title","content",80,intent)

@@ -42,6 +42,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(path: ':library')
 
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -57,6 +58,7 @@ dependencies {
     implementation  'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新
     //by viewModels
     implementation "androidx.fragment:fragment-ktx:1.3.5"
+    implementation 'androidx.activity:activity:1.3.0-alpha06'
     // 伸缩布局  搜索历史 等
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     //retrofit2
@@ -69,9 +71,8 @@ dependencies {
     //ARIA  下载管理
     implementation 'com.arialyy.aria:core:3.8.12'
     annotationProcessor 'com.arialyy.aria:compiler:3.8.12'
-
-    //
-//    implementation 'com.longer:verifycode:1.0.4'
+    //动态权限
+    implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
 
 
 }
